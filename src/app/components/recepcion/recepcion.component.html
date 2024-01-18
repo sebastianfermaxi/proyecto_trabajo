@@ -1,0 +1,86 @@
+<mat-stepper #stepper>
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Ingrese datos del cliente">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Ingrese datos del cliente</ng-template>
+        <div>
+          <mat-form-field>
+          <mat-label>DNI</mat-label>
+          <input matInput placeholder="DNI del cliente" formControlName="dni_cliente" required>
+        </mat-form-field>  
+        </div>
+        
+        <div>
+           <mat-form-field>
+            <mat-label>Apellido</mat-label>
+            <input matInput placeholder="Apellido del cliente" formControlName="apellido_cliente" required>
+          </mat-form-field> 
+        </div>
+        
+        <div>
+            <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Nombre del cliente" formControlName="nombre_cliente" required>
+          </mat-form-field>
+        </div>
+          
+        <div>
+           <mat-form-field>
+            <mat-label>Número</mat-label>
+            <input matInput placeholder="Numero de celular del cliente" formControlName="celular_cliente" required>
+          </mat-form-field> 
+        </div>
+          
+        <div>
+          <p>Ingrese todos los datos y pulse siguiente</p>
+          <button mat-button color="primary" matStepperNext style="margin: 30px;">Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" errorMessage="Ingrese datos del cliente">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Ingrese tipo de servicio y descripción</ng-template>
+
+
+        <mat-form-field>
+          <div >
+            <mat-label>Tipo de servicio</mat-label>
+        <mat-select>
+            <mat-option value="option" default>Mantenimiento</mat-option>
+            <mat-option value="option">Diagnóstico</mat-option>
+            <mat-option value="option">Garantía</mat-option>
+            <mat-option value="option">Otro</mat-option>
+
+        </mat-select>
+         </div>
+        </mat-form-field>
+
+<br>
+
+        <mat-form-field>
+          <div>
+             <mat-label>Descripción</mat-label>
+          <input matInput placeholder="Describa el trabajo a realizar" formControlName="secondCtrl"
+                 required>
+          </div>
+         
+
+ 
+        </mat-form-field>
+        
+        <div>
+          <p>Go to a different step to see the error state</p>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Imprimir reporte</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+  
