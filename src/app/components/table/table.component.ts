@@ -24,11 +24,13 @@ import { BackendService } from '../../services/backend.service';
   imports: [MatTableModule, MatButtonModule, MatIconModule, ],
 })
 export class TableComponent {
-  dataSource = ELEMENT_DATA;
-  columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
+//  dataSource = ELEMENT_DATA;
+  dataSource : any;
+  columnsToDisplay = ['dni', 'apellido', 'nombre', 'email','telefono1'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null | undefined;
   datos : any;
+
   constructor ( private backendService: BackendService) {}
   ngOnInit(): void{
     this.obtenerDatos();
@@ -37,20 +39,22 @@ export class TableComponent {
   obtenerDatos(): void {
     this.backendService.getData().subscribe( (data: any) =>{
       this.datos = data;
+      this.dataSource = this.datos;
+
       console.log(this.datos)
     })
   }
 }
 
 export interface PeriodicElement {
-  name: string;
+  dni: string;
   position: number;
   weight: number;
   symbol: string;
   description: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
+/*const ELEMENT_DATA: PeriodicElement[] = [
   {
     position: 1,
     name: 'Hydrogen',
@@ -140,3 +144,4 @@ const ELEMENT_DATA: PeriodicElement[] = [
         two-thirds the density of air.`,
   },
 ];
+*/

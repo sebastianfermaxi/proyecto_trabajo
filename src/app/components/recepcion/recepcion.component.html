@@ -32,11 +32,11 @@
           
         <div>
           <p>Ingrese todos los datos y pulse siguiente</p>
-          <button mat-button color="primary" matStepperNext style="margin: 30px;">Siguiente</button>
+          <button mat-button color="primary" (click)="validarUser()" matStepperNext style="margin: 30px;">Siguiente</button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" errorMessage="Ingrese datos del cliente">
+    <mat-step [stepControl]="secondFormGroup"  errorMessage="Ingrese datos del cliente">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Ingrese tipo de servicio y descripción</ng-template>
 

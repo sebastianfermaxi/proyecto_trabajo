@@ -7,7 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class BackendService {
 
-  private backendUrl = 'http://localhost:333'; // URL de tu backend
+  //private backendUrl = 'http://localhost:333'; // URL de tu backend
+
+  private backendUrl = '  https://prisma-production-0fde.up.railway.app/api/clientes'; // URL de tu backend
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -17,5 +21,7 @@ export class BackendService {
   }
 
   // Otros métodos para POST, PUT, DELETE, etc.
-
+  postData(user:any): Observable<any> {
+    return this.http.post<any>(`${this.backendUrl}`,user);
+  }
 }

@@ -13,17 +13,13 @@ import { RecepcionComponent } from './components/recepcion/recepcion.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
-    InicioComponent,
-    TableComponent,
-    InicioComponent,
-    NavbarComponent,
-    RecepcionComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -36,9 +32,15 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatFormFieldModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    TableComponent,
+    InicioComponent,
+    NavbarComponent,
+    RecepcionComponent
+    
   ],
   providers: [],
-  bootstrap: [InicioComponent]
+  bootstrap: []
 })
 export class AppModule { }

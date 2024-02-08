@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
+import { BackendService } from '../../services/backend.service';
 
 /**
  * @title Stepper that displays errors in the steps
@@ -33,11 +34,10 @@ import { MatSelectModule } from '@angular/material/select';
 })
 export class RecepcionComponent {
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
-    dni_cliente: ['', Validators.required],
-    apellido_cliente: ['', Validators.required],
-    nombre_cliente: ['', Validators.required],
-    celular_cliente: ['', Validators.required],
+    dni_cliente: ['',[ Validators.required, Validators.min(5000000)]],
+    apellido_cliente: ['', [Validators.required, Validators.minLength(2)]],
+    nombre_cliente: ['', [Validators.required, Validators.minLength(2)]],
+    celular_cliente: ['', [Validators.required, Validators.min(15000000)]],
 
 
   });
@@ -45,5 +45,20 @@ export class RecepcionComponent {
     secondCtrl: ['', Validators.required],
   });
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private backendService: BackendService) {}
+
+  validarUser(){
+    console.log( this.firstFormGroup.value);
+
+    /*
+    this.backendService.getData().subscribe( (data: any) =>{
+        this.datos = data;
+        this.dataSource = this.datos;
+  
+        console.log(this.datos)
+      })
+      */
+    
+  }
+  
 }
