@@ -48,17 +48,33 @@ export class RecepcionComponent {
   constructor(private _formBuilder: FormBuilder, private backendService: BackendService) {}
 
   validarUser(){
-    console.log( this.firstFormGroup.value);
+    console.log( this.firstFormGroup.value.apellido_cliente);
+    let dni: number;
+    if (this.firstFormGroup.valid && typeof this.firstFormGroup.value.dni_cliente === 'number') {
+      dni = this.firstFormGroup.value.dni_cliente;
+      
+      console.log( 'efectivamente '+ dni +' es un '+ typeof dni);
+    
+    }
 
-    /*
+  }
+    }
+    
+
+/*
+    let cliente : Cliente = {
+      apellido = this.firstFormGroup.value.apellido_cliente
+    }
+    
     this.backendService.getData().subscribe( (data: any) =>{
         this.datos = data;
         this.dataSource = this.datos;
   
         console.log(this.datos)
       })
-      */
-    
+      
   }
   
 }
+*/
+    
