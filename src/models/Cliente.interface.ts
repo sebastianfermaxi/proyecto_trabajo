@@ -1,11 +1,11 @@
 interface Cliente {
 
-    idcliente ?: number;
-    dni: number;
-    nombre: string;
-    apellido: string;
-    telefono1: string;
-    email?: string;
-    baja?: number;
+    id_cliente ?: number;
+    dni_cliente: number;
+    nombre_cliente: string;
+    apellido_cliente: string;
+    telefono_cliente: string;
+    email_cliente?: string;
+    baja_cliente?: number;
 
   }

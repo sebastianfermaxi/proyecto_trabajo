@@ -38,6 +38,7 @@ export class RecepcionComponent {
     apellido_cliente: ['', [Validators.required, Validators.minLength(2)]],
     nombre_cliente: ['', [Validators.required, Validators.minLength(2)]],
     celular_cliente: ['', [Validators.required, Validators.min(15000000)]],
+    email_cliente: ['', [Validators.email]]
 
 
   });
@@ -48,12 +49,19 @@ export class RecepcionComponent {
   constructor(private _formBuilder: FormBuilder, private backendService: BackendService) {}
 
   validarUser(){
-    console.log( this.firstFormGroup.value.apellido_cliente);
-    let dni: number;
+    console.log( this.firstFormGroup.value);
+
+    let dni_recepcion: number;
+    let apellido_recepcion: string;
+    let nombre_recepcion: string;
+    let telefono_recepcion: number;
+    let email_recepcion: string;
+
+
     if (this.firstFormGroup.valid && typeof this.firstFormGroup.value.dni_cliente === 'number') {
-      dni = this.firstFormGroup.value.dni_cliente;
+      dni_recepcion = this.firstFormGroup.value.dni_cliente;
       
-      console.log( 'efectivamente '+ dni +' es un '+ typeof dni);
+      console.log( 'efectivamente '+ dni_recepcion +' es un '+ typeof dni_recepcion);
     
     }
 

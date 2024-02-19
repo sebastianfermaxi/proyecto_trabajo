@@ -5,6 +5,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { BackendService } from '../../services/backend.service';
+import e from 'express';
 
 /**
  * @title Table with expandable rows
@@ -25,11 +26,11 @@ import { BackendService } from '../../services/backend.service';
 })
 export class TableComponent {
 //  dataSource = ELEMENT_DATA;
-  dataSource : any;
-  columnsToDisplay = ['dni', 'apellido', 'nombre', 'email','telefono1'];
+  dataSource : any[] = [];
+  columnsToDisplay = ['Dni', 'Apellido', 'Nombre', 'Email','Telefono'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: PeriodicElement | null | undefined;
-  datos : any;
+  
 
   constructor ( private backendService: BackendService) {}
   ngOnInit(): void{
@@ -38,10 +39,20 @@ export class TableComponent {
 
   obtenerDatos(): void {
     this.backendService.getData().subscribe( (data: any) =>{
-      this.datos = data;
-      this.dataSource = this.datos;
+      console.log(data);
 
-      console.log(this.datos)
+      data.forEach((e: any) => {
+      this.dataSource.push({
+        "Dni": e.dni_cliente,
+        "Apellido": e.apellido_cliente,
+        "Nombre": e.nombre_cliente,
+        "Email": e.email_cliente,
+        "Telefono": e.telefono_cliente
+      });
+      });
+
+      console.log(this.dataSource);
+
     })
   }
 }

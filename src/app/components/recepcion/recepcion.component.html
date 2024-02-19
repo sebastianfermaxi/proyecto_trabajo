@@ -5,7 +5,7 @@
         <div>
           <mat-form-field>
           <mat-label>DNI</mat-label>
-          <input matInput type="number" inputmode="numeric" placeholder="DNI del cliente" formControlName="dni_cliente" required>
+          <input matInput type="tel" inputmode="numeric" placeholder="DNI del cliente" formControlName="dni_cliente" required>
         </mat-form-field>  
         </div>
         
@@ -15,6 +15,13 @@
             <input matInput placeholder="Apellido del cliente" formControlName="apellido_cliente" required>
           </mat-form-field> 
         </div>
+
+        <div>
+          <mat-form-field>
+           <mat-label>Email</mat-label>
+           <input matInput placeholder="Email del cliente" formControlName="email_cliente" >
+         </mat-form-field> 
+       </div>
         
         <div>
             <mat-form-field>
