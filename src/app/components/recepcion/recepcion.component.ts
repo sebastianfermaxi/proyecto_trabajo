@@ -34,11 +34,11 @@ import { BackendService } from '../../services/backend.service';
 })
 export class RecepcionComponent {
   firstFormGroup = this._formBuilder.group({
-    dni_cliente: ['',[ Validators.required, Validators.min(5000000)]],
-    apellido_cliente: ['', [Validators.required, Validators.minLength(2)]],
-    nombre_cliente: ['', [Validators.required, Validators.minLength(2)]],
-    celular_cliente: ['', [Validators.required, Validators.min(15000000)]],
-    email_cliente: ['', [Validators.email]]
+    dni_cliente: ['3222222',[ Validators.required, Validators.min(999999)]],
+    apellido_cliente: ['we', [Validators.required, Validators.minLength(2)]],
+    nombre_cliente: ['we', [Validators.required, Validators.minLength(2)]],
+    celular_cliente: ['155433433', [Validators.required, Validators.min(15000000)]],
+    email_cliente: ['we@gmail.com', [Validators.email]]
 
 
   });
@@ -57,6 +57,10 @@ export class RecepcionComponent {
     let telefono_recepcion: number;
     let email_recepcion: string;
 
+    this.backendService.postData(this.firstFormGroup.value).subscribe( (data:any) =>{
+      console.log('Enviado correctamente')
+    })
+  
 
     if (this.firstFormGroup.valid && typeof this.firstFormGroup.value.dni_cliente === 'number') {
       dni_recepcion = this.firstFormGroup.value.dni_cliente;

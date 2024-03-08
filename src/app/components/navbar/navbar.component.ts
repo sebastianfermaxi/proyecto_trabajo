@@ -20,19 +20,22 @@ export class NavbarComponent {
 
 nombreEmpresa: string = 'Mi Empresa';
 
+
+
 goHome() {
   console.log('yendo a inicio')
   this.router.navigate(['/inicio']);
 }
 
 goRegister() {
-  console.log('yendo a inicio')
+  console.log('yendo a registro')
   this.router.navigate(['/reg_user']);
 }
 
 goServices() {
-  console.log('yendo a inicio')
+  console.log('yendo a servicios');
   this.router.navigate(['/services']);
+  //window.location.reload();
 }
 
 }

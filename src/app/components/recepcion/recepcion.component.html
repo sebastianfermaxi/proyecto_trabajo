@@ -1,5 +1,5 @@
 <mat-stepper #stepper>
-    <mat-step [stepControl]="firstFormGroup" errorMessage="Ingrese datos del cliente">
+    <mat-step [stepControl]="firstFormGroup" errorMessage="Faltan datos">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Ingrese datos del cliente</ng-template>
         <div>
@@ -43,7 +43,7 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup"  errorMessage="Ingrese datos del cliente">
+    <mat-step [stepControl]="secondFormGroup"  errorMessage="Faltan datos">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Ingrese tipo de servicio y descripción</ng-template>
 
@@ -63,11 +63,10 @@
 
 <br>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
           <div>
              <mat-label>Descripción</mat-label>
-          <input matInput placeholder="Describa el trabajo a realizar" formControlName="secondCtrl"
-                 required>
+          <textarea class="mat-form-field-autofill-control custom-textarea" matInput placeholder="Describa el trabajo a realizar" formControlName="secondCtrl" required ></textarea>
           </div>
          
 
